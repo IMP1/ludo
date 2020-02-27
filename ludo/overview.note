@@ -1,0 +1,55 @@
+# Ludo
+
+Where not specified, syntax and semantics follows that of Lua.
+
+## Variable Assignment
+
+```ludo
+let foo : string = "haha"
+let bar := 12 '' type inferrence.
+```
+
+## Types
+
+All lua types are still valid. In addition, Ludo adds some more.
+
+In total, these are the available types
+
+  * boolean
+  * int
+  * rational
+  * real
+  * unit
+  * complex
+  * vector
+  * string
+  * enum
+  * optional
+  * method
+  * constructor
+  * function
+  * procedure
+  * table (unsafe)
+  * userdata (unsafe)
+  * nil (unsafe)
+
+## Classes
+
+```ludo
+class Player
+    
+    attr position : vector[unit[m], 2] = ---
+    attr name     : string             = ---
+
+    constructor new(name: string, x: unit[m], y: unit[m])
+        self.position = [x, y]
+        self.name = name
+        '' All attributes must have values at this point (end of constructor).
+    end
+
+    meth move(movement: vector[unit[m], 2])
+        self.position += movement
+    end
+
+end
+```
